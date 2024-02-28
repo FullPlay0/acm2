@@ -1,0 +1,38 @@
+acm_project:
+  name: "Arithmetic Congruence Monoid"
+  version: "1.0.0"
+  description: "Implements arithmetic congruence monoids (ACM) in a YAML-based project."
+  documentation_link: "https://docs.example.com/acm"
+  math_definition:
+    acm: "M_{a,b}={a+bm:m∈ℤ_{≥0}}∪{1}={1,a,a+b,a+2b,…}"
+    example:
+      a: 1
+      b: 4
+      result: "{1,5,9,13,17,…}"
+  factors:
+    description: "Factor integers into elements of the ACM. Elements which cannot be expressed as the product of smaller ACM elements are called atoms."
+  atomic_density:
+    description: "Study the atomic density of different ACMs, that is, the distance between atoms."
+  related_projects:
+    - name: "acm-cpp"
+      link: "https://github.com/nilsso/acm-cpp"
+    - name: "acm-sage"
+      link: "https://github.com/coneill-math/acm-sage"
+  cli:
+    description: "Example CLI program `acm-cli` with subcommands to test the main ACM module and the divisors/factorize submodules."
+    examples:
+      - command: "cargo r --example acm-cli factor 225"
+        output: "(3,2),(5,2)"
+      - command: "cargo r --example acm-cli acm 3 6 factor 225"
+        output: "[15,15],[3, 75]"
+    usage: 
+      general: "acm-cli <SUBCOMMAND>"
+      acm_factor: 
+        description: "ACM atom factorizations of an integer"
+        usage: "acm-cli acm <a> <b> factor <n>"
+  documentation_generation:
+    command: "RUSTDOCFLAGS=\"--html-in-header katex-header.html\" cargo doc --no-deps --open"
+    description: "Build all documentation locally and open in your browser."
+  tests:
+    description: "Run all tests, including documentation tests."
+    command: "cargo t"

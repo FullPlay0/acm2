@@ -1,6 +1,6 @@
 [package]
 name = "arithmetic_congruence_monoid"
-version = "1.0.0"
+version = "1.0.3"
 edition = "2021"
 description = "Implements arithmetic congruence monoids (ACM) in a YAML-based project."
 license = "MIT OR Apache-2.0"
@@ -8,11 +8,16 @@ authors = ["cryptomiracle"]
 repository = "https://github.com/FullPlay0/acm2"
 documentation = "https://docs.example.com/acm"
 
-[[bin]]
-name = "acm"
-path = "src/acm2.rs"
+[lib]
+name = "arithmetic_congruence_monoid"
+path = "src/lib.rs"
 
 [dependencies]
 serde = "1.0"
 serde_yaml = "0.8"
 clap = "2.33.3"
+
+[workspace]
+members = [
+    "D:/~projects"
+]
